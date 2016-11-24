@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+ html {
+   font-family: Arial, Helvetica;
+ }
+h1 {
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 1.75em ;
+  font-weight: bold;
+}
+
+ .cell {
+  position: relative; 
+  margin-right: auto;
+  margin-left: auto;
+
+}
+
+.item {margin: 10px; 
+  position: relative; 
+  padding: 10px; 
+  background-color: darkgray;
+  }
+
+p.title {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+p.description {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+li.menu-item {
+	text-align: center;
+	border-bottom: solid 2px; 
+	background-color: white;
+}
+
+.navbar-default .navbar-nav li a
+{
+	font-size: 1.5em;
+	font-weight: bold;
+	color: black;
+}
+
+a.navbar-brand
+{
+	font-size: 1.5em;
+	font-weight: bold;
+	color: black ! important;
+}	
+
+.navbar-default
+{
+	background-color: darkgrey;
+}
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+  border: 2px solid black;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover
+{
+	background-color: lightgray;
+}
+
+@media (min-width : 480px) {
+
+  		.visible-xs-1 {
+  			display: none!important;
+  		}
+    }
+

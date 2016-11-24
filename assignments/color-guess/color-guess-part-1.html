@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Color Guess</title>
+	<script type="text/javascript">
+		var chosen_color;
+		var color_list = "";
+		var colors = ["red","orange","yellow","green","blue","indigo","violet"];
+		colors.sort();
+
+		
+		function do_game()
+		{
+
+		correct_color_index = Math.floor((Math.random() * colors.length)); 
+
+		alert("Hint: The randomly chosen color is: " + colors[correct_color_index]);
+
+		for(var i=0; i<colors.length-1;i++)
+		{
+			color_list = color_list + colors[i] + ", ";
+		}
+		color_list = color_list + colors[colors.length-1];
+
+		try_again = true;
+		while (try_again == true)
+		{
+		chosen_color = prompt("Choose a color: " + color_list);
+
+
+		var selected_index = colors.indexOf(chosen_color);
+
+
+		if (selected_index >= 0){
+
+			if (selected_index == correct_color_index)
+			{
+				//alert("You guessed the correct color!");
+				try_again= false;
+			}
+		}
+		else{
+			//alert("This is not a color: " + chosen_color);
+		}
+		}	
+
+	}
+	</script>
+</head>
+<body onload="do_game();">
+
+</body>
+
+</html>

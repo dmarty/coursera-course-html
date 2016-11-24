@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Color Guess</title>
+<script type="text/javascript">
+var chosen_color;
+var color_list = "";
+var colors = ["red","orange","yellow","green","blue","indigo","violet"];
+colors.sort();
+
+function do_game()
+{
+	
+	correct_color_index = Math.floor((Math.random() * colors.length)); 
+	
+	alert("Hint: The randomly chosen color is: " + colors[correct_color_index]);
+	
+	for(var i=0; i<colors.length-1;i++)
+	{
+		color_list = color_list + colors[i] + ", ";
+	}
+	color_list = color_list + colors[colors.length-1];
+	
+	try_again = true;
+	var count = 0;
+	while (try_again == true)
+	{
+		count++;
+		chosen_color = prompt("Enter a color or select cancel to exit: \r\n" + color_list);
+		if (chosen_color != null)
+		{
+			if (check_guess(chosen_color))
+				try_again = false;
+		}
+		else
+			try_again = false;
+		
+	}
+	
+	if (chosen_color != null)
+	{
+		alert("You guessed the correct color in " + count + " attempt(s)!");
+	
+		myBody=document.getElementsByTagName("body")[0]
+		myBody.style.background=chosen_color;
+	}
+}
+
+function check_guess(selected_index)
+{
+	var rtn_val = false;
+	var selected_index = colors.indexOf(chosen_color);
+	
+	if (selected_index >= 0){
+		
+		if (selected_index == correct_color_index)
+		{
+			rtn_val = true;
+		}
+		else if (selected_index < correct_color_index)
+		{
+			alert("Your color is alphabetically less than the target color");
+		}
+		else
+		{
+			alert("Your color is alphabetically greater than the target color");
+		}
+	}
+	else{
+		alert("This is not a color: " + chosen_color);
+	}
+	
+	return rtn_val;
+	
+}	
+</script>
+</head>
+<body onload="do_game()">
+
+</body>
+
+</html>
