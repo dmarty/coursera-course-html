@@ -6,7 +6,6 @@
  }
 h1 {
   margin-bottom: 15px;
-  text-align: center;
   font-size: 1.75em ;
   font-weight: bold;
 }
@@ -35,17 +34,14 @@ p.description {
   font-size: 1.2em;
 }
 
-li.menu-item {
-	text-align: center;
-	border-bottom: solid 2px; 
-	background-color: white;
-}
-
 .navbar-default .navbar-nav li a
 {
 	font-size: 1.5em;
 	font-weight: bold;
 	color: black;
+	background-color: white;
+	border-bottom: solid 2px; 
+
 }
 
 a.navbar-brand
