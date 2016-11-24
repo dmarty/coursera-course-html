@@ -65,10 +65,3 @@ a.navbar-brand
 	background-color: lightgray;
 }
 
-@media (min-width : 480px) {
-
-  		.visible-xs-1 {
-  			display: none!important;
-  		}
-    }
-
