@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Matching Game</title>
+<style type="text/css">
+	* {
+  box-sizing: border-box;}
+
+  img { position: absolute; }
+
+  div {width: 50%; height: 500px; float: left; position: relative;}
+
+  #leftside { border-right: solid 1px; }
+	
+	#rightSide { border-left: 1px solid black; }
+</style>
+<script type="text/javascript">
+
+	var theLeftSide; 
+	var theRightSide;
+	var theBody;
+	var numberOfFaces = 5;
+	var imgWidth = 50;
+	var imgHeight = 50;
+
+	function initialize()
+	{
+		theLeftSide = document.getElementById("leftSide");
+		theRightSide = document.getElementById("rightSide");
+		theBody = document.getElementsByTagName("body")[0];
+
+		generateFaces();
+	}
+
+	function generateFaces()
+	{
+
+		var positionInfo = theLeftSide.getBoundingClientRect();
+		var height = 500;
+		var width = Math.floor(positionInfo.width);
+		//alert('width: ' + width);
+		
+ 		while (theLeftSide.firstChild) {
+    		theLeftSide.removeChild(theLeftSide.firstChild);
+		}
+
+		var img;
+		for (var i = 1; i <= numberOfFaces; i++) {
+
+			var x = Math.floor((Math.random() * (width - imgWidth) + 1));
+			var y = Math.floor((Math.random() * (height - imgHeight) + 1));
+
+			img = document.createElement("img"); 
+			
+	        img.style.left = x + "px";
+	      	img.style.top = y + "px";
+	        img.style.width = imgWidth +"px";
+	        img.style.height = imgHeight +"px";
+	        img.src="http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
+
+	        theLeftSide.appendChild(img);
+    	}
+
+
+    	var leftSideImages = theLeftSide.cloneNode(true);
+    	var lastImg = leftSideImages.childNodes[numberOfFaces -1];
+    	leftSideImages.removeChild(lastImg);
+    	while (rightSide.firstChild) {
+    		rightSide.removeChild(rightSide.firstChild);
+		}
+    	rightSide.appendChild(leftSideImages);
+
+	}
+
+</script>
+</head>
+<body onload="initialize();">
+<h1>Matching Game</h1>
+<p>Click on the extra smilling face on the left</p>
+<div id="leftSide"> </div>
+<div id="rightSide"></div>
+</body>
+</html>
